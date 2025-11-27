@@ -208,6 +208,51 @@
     </div>
 </section>
 
+        <!-- Footer -->
+    <footer class="py-8 bg-gradient-to-t from-green-100 to-transparent">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-600">
+                © 2025 Jennifer Peralta - last update November 2025 |
+                <a href="https://github.com/OSSPhilippines/freefolio" class="text-leaf-green hover:text-green-700 transition">
+                    Freefolio Template
+                </a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobileMenu').classList.add('hidden');
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'bloom 1s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections for animation
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
 
 </body>
 </html>
